@@ -1,0 +1,17 @@
+    {
+        "name": "node-scrap-series",
+        "repository": {
+            "type": "git",
+            "url": "git://github.com/vulcao/node-scrap-series.git"
+        },
+        "version": "0.0.1",
+        "description": "Buscar atualizações das postagens de series publicadas no site",
+        "main": "scrapper.js",
+        "author": "Antonio Vulcão",
+        "license": "MIT",
+        "dependencies": {
+            "express": "latest",
+            "request": "latest",
+            "cheerio": "latest"
+        }
+    }
