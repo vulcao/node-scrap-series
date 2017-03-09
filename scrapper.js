@@ -16,6 +16,8 @@ app.get('/raspagem', function(req, res) {
       if (!error) {
           var $ = cheerio.load(html);
 
+          res.send($('.entry blockquote p strong'));
+
           // Objeto que irá armazenar a tabela
           var resultado = [];
           // Passo 3
@@ -35,12 +37,14 @@ app.get('/raspagem', function(req, res) {
                   total: valorTotal
               });
           });
-
-          // Passo 4
-          fs.writeFile('resultado.json', JSON.stringify(resultado, null, 4), function(err) {
-              console.log('JSON escrito com sucesso! O arquivo está na raiz do projeto.')
-          })
       }
+
+      // Escrevendo o arquivo .json com o array
+      fs.writeFile('resultado.json', JSON.stringify(resultado, null, 4), function(err) {
+          console.log('JSON escrito com sucesso! O arquivo está na raiz do projeto.')
+      })
+
+      res.send('Dados raspados com sucesso! Verifique no seu node console.');
   })
 })
 
